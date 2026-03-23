@@ -18,11 +18,11 @@ const Course = ({ courseId, setActiveView }) => {
       
       try {
         setLoading(true);
-        const courseRes = await fetch(`http://127.0.0.1:5001/api/courses/${courseId}`);
+        const courseRes = await fetch(`https://deployment-ua09.onrender.com/api/courses/${courseId}`);
         if (!courseRes.ok) throw new Error("Course not found");
         const data = await courseRes.json();
 
-        const progressRes = await fetch(`http://127.0.0.1:5001/api/user/courses/${userEmail.toLowerCase()}`);
+        const progressRes = await fetch(`https://deployment-ua09.onrender.com/api/user/courses/${userEmail.toLowerCase()}`);
         const progressData = await progressRes.json();
         
         const enrollment = progressData.courses?.find(c => Number(c.id) === Number(courseId));
@@ -59,7 +59,7 @@ const Course = ({ courseId, setActiveView }) => {
     const fetchComments = async () => {
       try {
         // Fetch all course comments and filter locally for persistence
-        const res = await fetch(`http://127.0.0.1:5001/api/comments/${courseId}/all`);
+        const res = await fetch(`https://deployment-ua09.onrender.com/api/comments/${courseId}/all`);
         const data = await res.json();
         
         // Ensure comments are filtered by the specific lesson the student is viewing
@@ -103,7 +103,7 @@ const Course = ({ courseId, setActiveView }) => {
     const newProgressPercent = Math.round((completedCount / curriculum.length) * 100);
 
     try {
-      await fetch('http://127.0.0.1:5001/api/admin/grade-assignment', {
+      await fetch('https://deployment-ua09.onrender.com/api/admin/grade-assignment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -141,7 +141,7 @@ const Course = ({ courseId, setActiveView }) => {
     setNewComment("");
 
     try {
-      const res = await fetch("http://127.0.0.1:5001/api/comments", {
+      const res = await fetch("https://deployment-ua09.onrender.com/api/comments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 

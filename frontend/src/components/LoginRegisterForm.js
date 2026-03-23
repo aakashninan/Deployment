@@ -29,8 +29,8 @@ function LoginRegisterForm({ formType, handleLogin }) {
 
     try {
       const endpoint = isLogin 
-        ? 'http://127.0.0.1:5001/api/auth/login' 
-        : 'http://127.0.0.1:5001/api/auth/register';
+        ? 'https://deployment-ua09.onrender.com/api/auth/login' 
+        : 'https://deployment-ua09.onrender.com/api/auth/register';
 
       const response = await fetch(endpoint, {
         method: 'POST',

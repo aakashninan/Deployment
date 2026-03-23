@@ -25,7 +25,7 @@ function ProfileContent({ setActiveView }) {
   useEffect(() => {
     const email = localStorage.getItem('userEmail');
     if (email) {
-      fetch(`http://127.0.0.1:5001/api/user/profile/${email}`)
+      fetch(`https://deployment-ua09.onrender.com/api/user/profile/${email}`)
         .then(res => res.json())
         .then(data => {
           setProfile(prev => ({
@@ -57,7 +57,7 @@ function ProfileContent({ setActiveView }) {
   const handleUpdateProfile = async () => {
     const oldEmail = localStorage.getItem('userEmail');
     try {
-      const response = await fetch('http://127.0.0.1:5001/api/user/profile/update', {
+      const response = await fetch('https://deployment-ua09.onrender.com/api/user/profile/update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -87,7 +87,7 @@ function ProfileContent({ setActiveView }) {
 
   const handleChangePassword = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5001/api/user/profile/password', {
+      const response = await fetch('https://deployment-ua09.onrender.com/api/user/profile/password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: profile.email, ...passwords })

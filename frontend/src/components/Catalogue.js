@@ -28,8 +28,8 @@ const Catalogue = ({ searchQuery, setActiveView }) => {
       try {
         // Updated URL to handle empty search queries gracefully
         const url = searchQuery 
-          ? `http://127.0.0.1:5001/api/courses?search=${searchQuery}`
-          : `http://127.0.0.1:5001/api/courses`;
+          ? `https://deployment-ua09.onrender.com/api/courses?search=${searchQuery}`
+          : `https://deployment-ua09.onrender.com/api/courses`;
           
         const res = await fetch(url);
         const data = await res.json();
@@ -52,7 +52,7 @@ const Catalogue = ({ searchQuery, setActiveView }) => {
     setIsProcessing(true);
     try {
       const response = await fetch(
-        "http://127.0.0.1:5001/api/user/enroll",
+        "https://deployment-ua09.onrender.com/api/user/enroll",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

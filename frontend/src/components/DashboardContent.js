@@ -17,7 +17,7 @@ function DashboardContent({ setActiveView, searchTerm = "" }) {
             }
             try {
                 // Fetch student data from MERN backend (Port 5001)
-                const response = await fetch(`http://127.0.0.1:5001/api/user/courses/${email.toLowerCase()}`);
+                const response = await fetch(`https://deployment-ua09.onrender.com/api/user/courses/${email.toLowerCase()}`);
                 if (!response.ok) throw new Error('Failed to synchronize course data');
                 
                 const data = await response.json();

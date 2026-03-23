@@ -16,8 +16,8 @@ const ManagerDash = ({ onLogout }) => {
   const fetchData = async () => {
     try {
       const [courseRes, teacherRes] = await Promise.all([
-        fetch('http://127.0.0.1:5001/api/courses'),
-        fetch('http://127.0.0.1:5001/api/auth/teachers')
+        fetch('https://deployment-ua09.onrender.com/api/courses'),
+        fetch('https://deployment-ua09.onrender.com/api/auth/teachers')
       ]);
       
       const courseData = await courseRes.json();
@@ -42,7 +42,7 @@ const ManagerDash = ({ onLogout }) => {
     const teacher = teachers.find(t => t.email === selectedTeacherEmail);
 
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/admin/assign-course', {
+      const res = await fetch('https://deployment-ua09.onrender.com/api/admin/assign-course', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

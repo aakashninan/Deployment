@@ -14,7 +14,7 @@ const Assignments = () => {
     try {
       setLoading(true);
       // Ensure email is lowercased to match backend sanitization
-      const res = await fetch(`http://127.0.0.1:5001/api/user/assignments/${userEmail.toLowerCase()}`);
+      const res = await fetch(`https://deployment-ua09.onrender.com/api/user/assignments/${userEmail.toLowerCase()}`);
       if (!res.ok) throw new Error("Failed to sync assignments");
       const data = await res.json();
       setAssignments(data);
@@ -44,7 +44,7 @@ const Assignments = () => {
     formData.append('studentEmail', userEmail.toLowerCase());
 
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/assignments/submit', {
+      const res = await fetch('https://deployment-ua09.onrender.com/api/assignments/submit', {
         method: 'POST',
         body: formData 
       });

@@ -13,7 +13,15 @@ const app = express();
 /* ================================
 1. MIDDLEWARE & FILE STORAGE
 ================================ */
-app.use(cors());
+const cors = require("cors");
+app.use(cors({
+origin: [
+"http://localhost:3000",
+"https://deployment-pl2zpy181-aakashninans-projects.vercel.app"
+],
+methods: ["GET", "POST", "PUT", "DELETE"],
+credentials: true
+}));
 app.use(express.json());
 
 const uploadDir = path.join(__dirname, 'uploads');
@@ -33,7 +41,7 @@ app.use('/uploads', express.static(uploadDir));
 /* ================================
 2. MONGODB CONNECTION
 ================================ */
-mongoose.connect('mongodb://127.0.0.1:27017/authDB')
+mongoose.connect('process.env.MONG_URI')
   .then(() => console.log("✅ Connected to MongoDB: authDB"))
   .catch(err => console.error("❌ MongoDB Connection Error:", err));
 

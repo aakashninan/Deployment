@@ -20,7 +20,7 @@ const Quizzes = ({ searchTerm = "" }) => {
     const email = localStorage.getItem('userEmail');
     if (!email) return;
     try {
-      const response = await fetch(`http://127.0.0.1:5001/api/user/quizzes/${email}`);
+      const response = await fetch(`https://deployment-ua09.onrender.com/api/user/quizzes/${email}`);
       const data = await response.json();
       setQuizzes(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -70,7 +70,7 @@ const Quizzes = ({ searchTerm = "" }) => {
     const passed = score >= passThreshold;
 
     try {
-      const response = await fetch('http://127.0.0.1:5001/api/user/quizzes/submit', {
+      const response = await fetch('https://deployment-ua09.onrender.com/api/user/quizzes/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

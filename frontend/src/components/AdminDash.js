@@ -40,8 +40,8 @@ const AdminDash = ({ onLogout }) => {
     if (!adminEmail) return;
     try {
       const [myRes, libRes] = await Promise.all([
-        fetch(`http://127.0.0.1:5001/api/admin/courses/${adminEmail.toLowerCase()}`),
-        fetch(`http://127.0.0.1:5001/api/courses`)
+        fetch(`https://deployment-ua09.onrender.com/api/admin/courses/${adminEmail.toLowerCase()}`),
+        fetch(`https://deployment-ua09.onrender.com/api/courses`)
       ]);
       if (myRes.ok) setMyCourses(await myRes.json());
       if (libRes.ok) setLibraryCourses(await libRes.json());
@@ -56,8 +56,8 @@ const AdminDash = ({ onLogout }) => {
     if (!managedCourse) return;
     try {
       const [rosterRes, commentRes] = await Promise.all([
-        fetch(`http://127.0.0.1:5001/api/admin/course-stats/${managedCourse.id}`),
-        fetch(`http://127.0.0.1:5001/api/comments/${managedCourse.id}/all`)
+        fetch(`https://deployment-ua09.onrender.com/api/admin/course-stats/${managedCourse.id}`),
+        fetch(`https://deployment-ua09.onrender.com/api/comments/${managedCourse.id}/all`)
       ]);
       
       if (rosterRes.ok) {
@@ -95,7 +95,7 @@ const AdminDash = ({ onLogout }) => {
     if (!window.confirm("Permanently delete this course and all student submissions? This cannot be undone.")) return;
 
     try {
-      const res = await fetch(`http://127.0.0.1:5001/api/admin/delete-course/${courseId}`, {
+      const res = await fetch(`https://deployment-ua09.onrender.com/api/admin/delete-course/${courseId}`, {
         method: 'DELETE'
       });
 
@@ -113,7 +113,7 @@ const AdminDash = ({ onLogout }) => {
     if (!window.confirm(`Confirm taking over "${course.title}" as instructor?`)) return;
 
     try {
-      const res = await fetch(`http://127.0.0.1:5001/api/admin/claim-course`, {
+      const res = await fetch(`https://deployment-ua09.onrender.com/api/admin/claim-course`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -140,7 +140,7 @@ const AdminDash = ({ onLogout }) => {
     if (grade === null || grade === "" || isNaN(grade)) return;
 
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/admin/grade-assignment', {
+      const res = await fetch('https://deployment-ua09.onrender.com/api/admin/grade-assignment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -162,7 +162,7 @@ const AdminDash = ({ onLogout }) => {
     const text = replyText[commentId];
     if (!text?.trim()) return;
     try {
-      const res = await fetch(`http://127.0.0.1:5001/api/comments/reply`, {
+      const res = await fetch(`https://deployment-ua09.onrender.com/api/comments/reply`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ commentId, text, adminName, adminEmail })
@@ -196,7 +196,7 @@ const AdminDash = ({ onLogout }) => {
     };
 
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/admin/create-course', {
+      const res = await fetch('https://deployment-ua09.onrender.com/api/admin/create-course', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -215,7 +215,7 @@ const AdminDash = ({ onLogout }) => {
     }
 
     try {
-      const res = await fetch(`http://127.0.0.1:5001/api/admin/issue-certificate`, {
+      const res = await fetch(`https://deployment-ua09.onrender.com/api/admin/issue-certificate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
