@@ -13,7 +13,7 @@ const app = express();
 /* ================================
 1. MIDDLEWARE & FILE STORAGE
 ================================ */
-const cors = require("cors");
+
 app.use(cors({
 origin: [
 "http://localhost:3000",
