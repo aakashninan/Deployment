@@ -15,12 +15,12 @@ const app = express();
 ================================ */
 
 app.use(cors({
-origin: [
-"http://localhost:3000",
-"https://deployment-pl2zpy181-aakashninans-projects.vercel.app"
-],
-methods: ["GET", "POST", "PUT", "DELETE"],
-credentials: true
+  origin: [
+    "http://localhost:3000",
+    "https://deployment-awitptfxs-aakashninans-projects.vercel.app" // Your EXACT Vercel URL from the screenshot
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
 app.use(express.json());
 
