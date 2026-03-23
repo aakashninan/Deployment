@@ -17,7 +17,9 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://deployment-awitptfxs-aakashninans-projects.vercel.app" // Your EXACT Vercel URL from the screenshot
+    "https://deployment-seven-gray.vercel.app",
+    "https://deployment-ua09.onrender.com", // Your own backend URL just in case
+    /\.vercel\.app$/ // This ALLOWS any URL ending in .vercel.app (RegEx)
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
