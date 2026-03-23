@@ -48,7 +48,7 @@ function Header({ activeView, setActiveView, isLoggedIn, handleLogout, searchQue
                     className={`nav-link-premium ${activeView === 'dashboard' ? 'active' : ''}`} 
                     onClick={() => setActiveView('dashboard')}
                   >
-                    Dashboard
+                    Your Courses
                   </button>
                 </li>
                 <li className="nav-item">
