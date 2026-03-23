@@ -43,10 +43,10 @@ app.use('/uploads', express.static(uploadDir));
 /* ================================
 2. MONGODB CONNECTION
 ================================ */
-const mongoURI = "mongodb+srv://elearningadmin:Aakash1234@cluster0.xbtj7cq.mongodb.net/authDB?retryWrites=true&w=majority";
 
 
-mongoose.connect(mongoURI)
+
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ Connected to MongoDB: authDB"))
   .catch(err => console.error("❌ MongoDB Connection Error:", err));
 
