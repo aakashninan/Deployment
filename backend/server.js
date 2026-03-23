@@ -43,7 +43,7 @@ app.use('/uploads', express.static(uploadDir));
 /* ================================
 2. MONGODB CONNECTION
 ================================ */
-mongoose.connect('process.env.MONG_URI')
+mongoose.connect(process.env.MONG_URI)
   .then(() => console.log("✅ Connected to MongoDB: authDB"))
   .catch(err => console.error("❌ MongoDB Connection Error:", err));
 
